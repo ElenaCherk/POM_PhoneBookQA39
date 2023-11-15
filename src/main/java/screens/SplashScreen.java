@@ -8,14 +8,15 @@ import org.testng.Assert;
 public class SplashScreen extends BaseScreen{
     public SplashScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
-    }
+    } // строим объект класса SplashScreen
+    // с помощью родительского конструктора
 
-    @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/version_text']")
-    MobileElement versionTextView;
+    // стратегия посиска
+    @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/version_text']") //найди элемент по локатору
+    MobileElement versionTextView; //и сслыку на него положи на объект класса MobileElement
     public String getCurrentVersion(){
         return versionTextView.getText();
     }
-
     public AuthenticationScreen gotoAuthenticationScreen() {
         return new AuthenticationScreen(driver);
     }
