@@ -34,7 +34,6 @@ public class AppiumConfig {
         driver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
 
     }
-
 @AfterSuite
     public void tearDown(){
         driver.quit();

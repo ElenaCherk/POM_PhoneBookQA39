@@ -35,13 +35,13 @@ public class AuthenticationScreen extends BaseScreen {
 
 
     public AuthenticationScreen fillEmail(String email){
-        waitElement(editTextEmail,7);
+        waitElement(editTextEmail,5);
         type(editTextEmail, email);
         return this;
     }
 
     public AuthenticationScreen fillPassword(String password){
-        waitElement(editTextPassword, 7);
+        waitElement(editTextPassword, 5);
         type(editTextPassword, password);
         return this;
     }
@@ -79,6 +79,7 @@ public class AuthenticationScreen extends BaseScreen {
 
     public AuthenticationScreen isErrorMassageContainsText (String text){
         Assert.assertTrue(errorTextView.getText().contains(text));
+        okButton.click();
         return this;
     }
 
@@ -90,7 +91,7 @@ public class AuthenticationScreen extends BaseScreen {
     }
 
     public AuthenticationScreen isErrorMessageContainsTextInAlert(String text){
-        Alert alert = new WebDriverWait(driver,7)
+        Alert alert = new WebDriverWait(driver,3)
                 .until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert();
         Assert.assertTrue(alert.getText().contains(text));

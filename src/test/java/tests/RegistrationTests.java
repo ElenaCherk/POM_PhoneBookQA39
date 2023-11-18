@@ -42,10 +42,10 @@ public class RegistrationTests extends AppiumConfig {
     public void registrationWrongEmail(){
         new SplashScreen(driver)
                 .gotoAuthenticationScreen()
-                .fillEmail("rina" + i + "mail.com")
+                .fillEmail("rina_" + i + "mail.com")
                 .fillPassword("Rr12345$")
                 .submitRegistrationNegative()
-                .isErrorMassageContainsText("must be a well-formed email address");
+                .isErrorMassageContainsText("email address");
     }
     @Test
     public void registrationWrongPassword(){
@@ -56,9 +56,7 @@ public class RegistrationTests extends AppiumConfig {
                                 .email("rina" + i + "@mail.com")
                                 .password("Rr123")
                                 .build())
-                .submitRegistrationNegative()
-  //              .isErrorMassageContainsText("password");
-                .isErrorMessageContainsTextInAlert("password");
+                .isErrorMessageContainsTextInAlert("password"); // можно так
     }
     @AfterMethod
     public void postCondition(){
